@@ -3,7 +3,6 @@ package com.capacitorjs.plugins.googlemaps
 import com.google.android.gms.maps.model.GroundOverlay
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
-import com.google.android.gms.maps.model.Polyline
 import org.json.JSONObject
 
 class CapacitorGoogleMapsTileOverlay(fromJSONObject: JSONObject) {
@@ -25,11 +24,6 @@ class CapacitorGoogleMapsTileOverlay(fromJSONObject: JSONObject) {
         imageSrc = fromJSONObject.optString("imageSrc", null)
         zIndex = fromJSONObject.optLong("zIndex", 0).toFloat()
         visible = fromJSONObject.optBoolean("visible", true)
-
-        if (visible) {
-            opacity = 1.0f - fromJSONObject.optDouble("opacity", 1.0).toFloat()
-        } else {
-            opacity = 1.0f
-        }
+        opacity = 1.0f - fromJSONObject.optDouble("opacity", 1.0).toFloat()
     }
 }

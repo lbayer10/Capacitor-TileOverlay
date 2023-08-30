@@ -239,6 +239,8 @@ class CapacitorGoogleMap(
                             .image(imageDescriptor)
                             .positionFromBounds(tileOverlay.imageBounds)
                             .transparency(tileOverlay.opacity)
+                            .zIndex(tileOverlay.zIndex)
+                            .visible(tileOverlay.visible)
                     )
 
                     tileOverlay.googleMapsTileOverlay = groundOverlay

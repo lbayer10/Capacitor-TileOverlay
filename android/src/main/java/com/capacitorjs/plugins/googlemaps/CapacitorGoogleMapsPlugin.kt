@@ -207,8 +207,6 @@ class CapacitorGoogleMapsPlugin : Plugin() {
             val id = call.getString("id")
             id ?: throw InvalidMapIdError()
 
-            Log.d("addTileOverlay: ", "first part")
-
             val imageBoundsObj = call.getObject("imageBounds") ?: throw InvalidArgumentsError("imageBounds object is missing")
 
             val imageSrc = call.getString("imageSrc")
@@ -223,14 +221,10 @@ class CapacitorGoogleMapsPlugin : Plugin() {
             tileOverlayConfig.put("zIndex", zIndex)
             tileOverlayConfig.put("visible", visible)
 
-            Log.d("tileOverlayConfig", "${tileOverlayConfig}")
-
             val map = maps[id]
             map ?: throw MapNotFoundError()
 
             val tileOptions = CapacitorGoogleMapsTileOverlay(tileOverlayConfig)
-
-            Log.d("tileOverlayOptions", "${tileOptions}")
 
             map.addTileOverlay(tileOptions) { result ->
                 val tileOverlayId = result.getOrThrow()
